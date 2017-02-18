@@ -6,7 +6,7 @@
   "scripts": {
     "docker:init-dev": "docker image rm webpack2 --force || true && docker build -f ./dockerfiles/dev.dockerfile -t webpack2-dev .",
     "docker:init-build": "docker image rm webpack2 --force || true && docker build -f ./dockerfiles/build.dockerfile -t webpack2-build .",
-    "docker:dev": "docker run -it -p 8080:8080 --rm webpack2-dev",
+    "docker:dev": "docker run -it -p 8080:8080 -v $PWD/src:/tmp/src --rm webpack2-dev",
     "docker:build": "docker run -it --rm webpack2-build",
     "dev": "webpack-dev-server --content-base dist --hot --inline --host 0.0.0.0",
     "build": "webpack -p"
